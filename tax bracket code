@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+double calculateTax(double income) {
+    double tax = 0.0;
+
+    if (income <= 600000) {
+        tax = 0.0;  // No tax for income <= 600,000
+        cout<<"For the salary less than 600000 there is no deduction of tax "<<endl<<endl;
+    } 
+	else if (income <= 1200000) {
+        tax = 0.05 * (income - 600000);  // 5% tax on income above 600,000
+    } 
+	else if (income <= 2400000) {
+        tax = 0.10 * (income - 1200000) + 30000;  // 10% tax + base tax of 30,000
+    } 
+	else if (income <= 3600000) {
+        tax = 0.15 * (income - 2400000) + 150000;  // 15% tax + base tax of 150,000
+    } 
+	else if (income <= 5000000) {
+        tax = 0.20 * (income - 3600000) + 375000;  // 20% tax + base tax of 375,000
+    } 
+	else if (income <= 8000000) {
+        tax = 0.25 * (income - 5000000) + 775000;  // 25% tax + base tax of 775,000
+    } 
+	else if (income <= 12000000) {
+        tax = 0.30 * (income - 8000000) + 1775000;  // 30% tax + base tax of 1,775,000
+    } 
+	else {
+        tax = 0.35 * (income - 12000000) + 3775000;  // 35% tax + base tax of 3,775,000
+    }
+
+    return tax;
+}
+
+int main() {
+    double income;
+
+    // Input income
+    cout << "Enter your taxable income (PKR): ";
+    cin >> income;
+
+    // Calculate tax based on income
+    double tax = calculateTax(income);
+
+    // Output tax
+    cout << "Your tax payable is: PKR " << tax << endl;
+
+    return 0;
+}
